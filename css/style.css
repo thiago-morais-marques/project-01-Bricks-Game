@@ -1,0 +1,92 @@
+* {
+    margin:  0;
+    padding: 0;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+    border: 5px solid white;
+}
+
+body {
+    background-image: url(../assets/background.jpg);
+    align-items: center;
+    text-align: center;
+}
+
+.instructions {
+    display: block;
+    justify-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+@font-face {
+    font-family: "Arcade";
+    src: url(../font/DiscoDuck3DItalic-al1m.woff);
+}
+
+@font-face {
+    font-family: "Retro";
+    src: url(../font/OdetoIdleGaming-4001.woff);
+}
+
+@font-face {
+    font-family: "Pixel";
+    src: url(../font/OldSchoolAdventures-847a.woff);
+}
+
+p {
+    font-family: "Retro";
+    color: white;
+    font-size: 12px;
+    display: inline;
+}
+
+#playbutton {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin-top: 10px;
+    font-family: "Pixel";
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+#P {
+ color: lime;   
+}
+
+#L{
+    color: orange;
+}
+
+#A{
+    color: blue;
+}
+
+#Y{
+    color: red;
+}
+
+#scoreboard {
+    margin-top: 0.2%;
+    color: black;
+    font-family: "Retro";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#score{
+    margin-top: 0.2%;
+    display: inline-block;
+    font-size: 20px;
+    font-family: "Retro";
+    font-weight: bold;
+}
