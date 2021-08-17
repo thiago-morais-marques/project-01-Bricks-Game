@@ -32,7 +32,7 @@ class Piece {
     };
 
     moveDown() {
-        if(!this.collision(0,1,this.activeShape)){
+        if(!this.collision(0, 1, this.activeShape)){
             this.unDraw();
             this.y++;
             this.draw();
@@ -44,7 +44,7 @@ class Piece {
     };
 
     moveRight() {
-        if(!this.collision(1,0,this.activeShape)){
+        if(!this.collision(1, 0, this.activeShape)){
             this.unDraw();
             this.x++;
             this.draw();
@@ -52,7 +52,7 @@ class Piece {
     };
 
     moveLeft() {
-        if(!this.collision(-1,0,this.activeShape)){
+        if(!this.collision(-1, 0, this.activeShape)){
             this.unDraw();
             this.x--;
             this.draw();
@@ -64,7 +64,7 @@ class Piece {
         let kick = 0;
         
         if(this.collision(0,0,nextPattern)){
-            if(this.x > col/2){
+            if(this.x > col / 2){
                 // move um quadrado para a esquerda ou direita quando tentar girar ao lado da borda
                 kick = -1; 
             }else{
@@ -83,24 +83,25 @@ class Piece {
     };
 
     lock() {
-        for(let r = 0; r < this.activeShape.length; r++){
+       
+          for(let r = 0; r < this.activeShape.length; r++){
             for(let c = 0; c < this.activeShape.length; c++){
 
                 // pula os quadrados vazios
-                if( !this.activeShape[r][c]){
+                if(!this.activeShape[r][c]){
                     continue;
                 };
                 // Game Over
                 if(this.y + r < 0){
-                    alert("Game Over");
-                  
+    
                     gameOver = true;
-                
-                    //document.getElementById("playbutton").disabled = false
+                    gameOverScreen();
+
                     break;
                 };
+
                 // a peça é travada
-                board[this.y+r][this.x+c] = this.color;
+                board[this.y + r][this.x + c] = this.color;
             };
         };
 
@@ -135,7 +136,8 @@ class Piece {
     };
 
     collision(x,y,piece) {
-        for(let r = 0; r < piece.length; r++){
+
+         for(let r = 0; r < piece.length; r++){
             for(let c = 0; c < piece.length; c++){
                 // se o quadrado está vazio, é pulado
                 if(!piece[r][c]){

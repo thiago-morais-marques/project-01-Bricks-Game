@@ -45,36 +45,6 @@ p {
     display: inline;
 }
 
-#playbutton {
-    width: 100px;
-    height: 50px;
-    display: block;
-    margin-top: 10px;
-    font-family: "Pixel";
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    background-color: black;
-    border: 2px solid white;
-    cursor: pointer;
-}
-
-#P {
- color: lime;   
-}
-
-#L{
-    color: orange;
-}
-
-#A{
-    color: blue;
-}
-
-#Y{
-    color: red;
-}
-
 #scoreboard {
     margin-top: 0.2%;
     color: black;

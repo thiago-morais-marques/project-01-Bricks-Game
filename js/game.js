@@ -16,20 +16,26 @@ const bricks = [
     [J,"blue"]
 ];
 
+
+
 let score = 0;
+// Date.now() retorna o número de milisegundos decorridos desde 1 de janeiro de 1970 00:00:00
+let dropStart = Date.now();
+//console.log(dropStart); -> retorna um número estático após a função abaixo ser chamada
+let gameOver = false;
+let p = randomPiece();
 
 // desenha um quadrado 
 function drawSquare(x,y,color){
     ctx.fillStyle = color;
-    ctx.fillRect(x*squareSize,y*squareSize,squareSize,squareSize);
+    ctx.fillRect(x * squareSize,y * squareSize, squareSize, squareSize);
 
     ctx.strokeStyle = "lightgray";
-    ctx.strokeRect(x*squareSize,y*squareSize,squareSize,squareSize);
+    ctx.strokeRect(x * squareSize, y * squareSize, squareSize, squareSize);
 };
 
-// cria o board
 let board = [];
-for(let r = 0; r <row; r++){
+for(let r = 0; r < row; r++){
     board[r] = [];
     for(let c = 0; c < col; c++){
         board[r][c] = emptySquare;
@@ -37,10 +43,10 @@ for(let r = 0; r <row; r++){
 };
 
 // desenha o board
-function drawBoard(){
-    for(let r = 0; r <row; r++){
+function drawBoard(){  
+    for(let r = 0; r < row; r++){
         for(let c = 0; c < col; c++){
-            drawSquare(c,r,board[r][c]);
+            drawSquare(c, r, board[r][c]);
         };
     };
 };
@@ -50,11 +56,10 @@ drawBoard();
 // cria as peças aleatoriamente
 function randomPiece(){
     let random = Math.floor(Math.random() * bricks.length) // 7 peças -> index 0 ao 6
-    return new Piece( bricks[random][0],bricks[random][1]);
+    return new Piece(bricks[random][0], bricks[random][1]);
 }
 
 // Controles
-let p = randomPiece();
 
 document.addEventListener("keydown",control);
 
@@ -75,11 +80,6 @@ function control(event){
 
 // joga uma peça a cada 1 segundo
 
-// Date.now() retorna o número de milisegundos decorridos desde 1 de janeiro de 1970 00:00:00
-let dropStart = Date.now();
-let gameOver = false;
-
-//console.log(dropStart); -> retorna um número estático após a função abaixo ser chamada
 
 function drop(){
     let now = Date.now();
@@ -101,13 +101,22 @@ function drop(){
 
 drop();
 
-//function reload (event) {
-  
-//}
+// Apresenta a tela de Game Over e dá restart no jogo
+function gameOverScreen () {
+    
+    setTimeout (() => {
+    window.cancelAnimationFrame(randomPiece(p.moveDown()));
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.textAlign = 'center';
+    ctx.font = '30px Pixel';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
+    }, 100);
 
+    setTimeout (() => {
+        document.location = "";
+    }, 2000);
+};
 
-//function playButtonClicked() {
-
-    //document.addEventListener("click",reload);
-    //document.getElementById("playbutton").disabled = true;
-//};
