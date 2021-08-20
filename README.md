@@ -41,4 +41,4 @@ Use the keyboard arrows to move/rotate your pieces and F5 to restart.
 #### ABOUT THE AUTHOR
 Thiago Morais Marques
 
-You can find me on [LinkedIn](www.linkedin.com/in/thiago-morais-marques). 
+You can find me on [LinkedIn](https://www.linkedin.com/in/thiago-morais-marques). 
