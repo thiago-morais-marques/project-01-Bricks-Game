@@ -16,37 +16,38 @@ const bricks = [
     [J,"blue"]
 ];
 
-
-
 let score = 0;
-// Date.now() retorna o número de milisegundos decorridos desde 1 de janeiro de 1970 00:00:00
-let dropStart = Date.now();
-//console.log(dropStart); -> retorna um número estático após a função abaixo ser chamada
 let gameOver = false;
-let p = randomPiece();
 
-// desenha um quadrado 
-function drawSquare(x,y,color){
+// desenha um quadrado nas colunas de 0 a 9 e nas linhas de 0 a 19
+function drawSquare( x, y, color) {
+
     ctx.fillStyle = color;
-    ctx.fillRect(x * squareSize,y * squareSize, squareSize, squareSize);
+    ctx.fillRect(x * squareSize, y * squareSize, squareSize, squareSize);
 
     ctx.strokeStyle = "lightgray";
     ctx.strokeRect(x * squareSize, y * squareSize, squareSize, squareSize);
+
 };
 
+// cria o board 
 let board = [];
-for(let r = 0; r < row; r++){
+for(let r = 0; r < row; r++) {
+
     board[r] = [];
     for(let c = 0; c < col; c++){
         board[r][c] = emptySquare;
+
     };
 };
 
 // desenha o board
-function drawBoard(){  
+function drawBoard() {  
+
     for(let r = 0; r < row; r++){
         for(let c = 0; c < col; c++){
             drawSquare(c, r, board[r][c]);
+
         };
     };
 };
@@ -54,69 +55,91 @@ function drawBoard(){
 drawBoard();
 
 // cria as peças aleatoriamente
-function randomPiece(){
+function randomPiece() {
+
     let random = Math.floor(Math.random() * bricks.length) // 7 peças -> index 0 ao 6
     return new Piece(bricks[random][0], bricks[random][1]);
+
 }
 
 // Controles
+let p = randomPiece();
+document.addEventListener("keydown", control);
 
-document.addEventListener("keydown",control);
+function control(event) {
 
-function control(event){
-    if(event.keyCode === 37){
+    switch (event.keyCode) {
+
+        case 37:
         p.moveLeft();
-        dropStart = Date.now();
-    }else if(event.keyCode === 38){
-        p.rotate();
-        dropStart = Date.now();
-    }else if(event.keyCode === 39){
+        break;
+        case 39:
         p.moveRight();
-        dropStart = Date.now();
-    }else if(event.keyCode === 40){
+        break;
+        case 38:
+        p.rotate();
+        break;
+        case 40:
         p.moveDown();
+        break;
+
     };
 };
 
-// joga uma peça a cada 1 segundo
+// Automatiza a queda das peças e define a dificuldade progressiva
+let delay = 1000;
 
+let timerId = setTimeout(function difficulty() {
+    p.moveDown();
 
-function drop(){
-    let now = Date.now();
-    //console.log(now); -> retorna milesegundos progressivos com o tempo
-    let difference = now - dropStart;
-    if( difference > 1000){
-        p.moveDown();
-        dropStart = Date.now();
+    if(score >= 40) {
+       delay = 500;
     };
 
-    /* O método window.requestAnimationFrame() fala para o navegador que deseja-se realizar uma 
-    animação e pede que o navegador chame uma função específica para atualizar um quadro de animação 
-    antes da próxima repaint (repintura). O método tem como argumento uma callback que deve ser 
-    invocado antes da repaint. */
-    if( !gameOver){
-        requestAnimationFrame(drop);
+    if(score >= 80) {
+    clearTimeout(timerId);
+    delay = 250;
     };
-};
 
-drop();
+    if(score >= 120) {
+        clearTimeout(timerId);
+        delay = 100;
+    };
+
+    if(score >= 150) {
+        clearTimeout(timerId);
+        delay = 80;
+    };
+
+    if(score >= 200) {
+        clearTimeout(timerId);
+        delay = 60;
+    };
+
+    timerId = setTimeout(difficulty, delay);
+
+
+  }, delay);
 
 // Apresenta a tela de Game Over e dá restart no jogo
 function gameOverScreen () {
+ 
+    document.removeEventListener("keydown", control);
     
     setTimeout (() => {
-    window.cancelAnimationFrame(randomPiece(p.moveDown()));
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.textAlign = 'center';
-    ctx.font = '30px Pixel';
-    ctx.fillStyle = 'white';
-    ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
-    }, 100);
+
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 55px Retro';
+        ctx.fillStyle = "black";
+        ctx.fillText("GAME", canvas.width / 2, canvas.height / 2.3);
+        ctx.fillText("OVER", canvas.width / 2, canvas.height / 2.3 + 90);
+
+    }, 500);
 
     setTimeout (() => {
-        document.location = "";
-    }, 2000);
-};
 
+        document.location = "";
+
+    }, 3000);
+
+};

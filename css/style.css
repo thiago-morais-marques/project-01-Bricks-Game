@@ -24,18 +24,8 @@ body {
 }
 
 @font-face {
-    font-family: "Arcade";
-    src: url(../font/DiscoDuck3DItalic-al1m.woff);
-}
-
-@font-face {
     font-family: "Retro";
     src: url(../font/OdetoIdleGaming-4001.woff);
-}
-
-@font-face {
-    font-family: "Pixel";
-    src: url(../font/OldSchoolAdventures-847a.woff);
 }
 
 p {
