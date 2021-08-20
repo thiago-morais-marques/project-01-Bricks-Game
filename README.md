@@ -38,7 +38,7 @@ As mentioned above, Bricks is a tetris clone, so if you want to know more about 
 ### Controls
 Use the keyboard arrows to move/rotate your pieces and F5 to restart. 
 
-####ABOUT THE AUTHOR
+###ABOUT THE AUTHOR
 Thiago Morais Marques
 
 You can find me on [LinkedIn](www.linkedin.com/in/thiago-morais-marques). 
