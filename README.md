@@ -35,7 +35,7 @@ List of rules:
 
 As mentioned above, Bricks is a tetris clone, so if you want to know more about it, you can find the official tetris guideline here at this [link](https://www.dropbox.com/s/g55gwls0h2muqzn/tetris%20guideline%20docs%202009.zip?dl=0&file_subpath=%2F2009+Tetris+Design+Guideline.pdf).
 
-### Controls
+### CONTROLS
 Use the keyboard arrows to move/rotate your pieces and F5 to restart. 
 
 #### ABOUT THE AUTHOR
