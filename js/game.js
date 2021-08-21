@@ -130,7 +130,7 @@ function gameOverScreen () {
 
         ctx.textAlign = 'center';
         ctx.font = 'bold 55px Retro';
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.fillText("GAME", canvas.width / 2, canvas.height / 2.3);
         ctx.fillText("OVER", canvas.width / 2, canvas.height / 2.3 + 90);
 
