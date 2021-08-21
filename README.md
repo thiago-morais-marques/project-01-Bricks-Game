@@ -30,7 +30,7 @@ List of rules:
 	* Blue J.
 * Every piece spawn at position Y -2;
 * The scoring system adds 10 for each rows cleared;
-* On scores 40, 80, 120, 150 and 200 the game increases the difficulty;
+* When you reach scores of 40, 80, 120, 150 and 200, the game increases the difficulty
 * If a locked piece reaches the last row, it's Game Over.
 
 As mentioned above, Bricks is a tetris clone, so if you want to know more about it, you can find the official tetris guideline here at this [link](https://www.dropbox.com/s/g55gwls0h2muqzn/tetris%20guideline%20docs%202009.zip?dl=0&file_subpath=%2F2009+Tetris+Design+Guideline.pdf).
