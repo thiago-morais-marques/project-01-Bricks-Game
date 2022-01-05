@@ -8,11 +8,11 @@ This game has been made as a project of de firt module of the Ironhack Web Devel
 
 
 ### GETTING STARTED
-As a simple browser game, it doen't need any installation. 
+As a simple browser game, it doen't need any installation.
 
-Just click the link below:
+Just open the html file in your browser or click the link below:
  
-[https://thiago-morais-marques.github.io/project-01-Bricks-Game/](https://thiago-morais-marques.github.io/project-01-Bricks-Game/)
+[PLAY!!!](https://thiago-morais-marques.github.io/project-01-Bricks-Game/)
 
 ### BRICKS GUIDELINE
 Bricks is a puzzle game where the main goal is to fit geometric pieces (or tetrominos) together.
