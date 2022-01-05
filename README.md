@@ -8,7 +8,7 @@ This game has been made as a project of de firt module of the Ironhack Web Devel
 
 
 ### GETTING STARTED
-As a simple browser game, it doen't need any installation.
+As a vanilla javascript game, it doen't need any installation.
 
 Just open the html file in your browser or click the link below:
  
